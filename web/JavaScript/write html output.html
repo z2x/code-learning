@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>写入html输出</title>
+	<link rel="stylesheet" href="">
+</head>
+<body>
+	<p>javascript 能够直接写入html输出流中：</p>
+	<script>
+	var MyFirstVariable;
+	MyFirstVariable = "Hello";
+	alert(MyFirstVariable);
+	MyFirstVariable = 2015;
+	alert(MyFirstVariable);
+
+	var MyFirstVariable = "My world!";
+	alert(MyFirstVariable);
+
+	document.write("<h1>This is a heading</h1>");
+	document.write("<p>This is a paragraph</p>");
+
+	
+	function myFunction(){
+		var TotalCostofShopping = 22 + 3 + 8;
+		document.getElementById("demo").innerHTML = TotalCostofShopping;
+	}
+	</script>
+	<p id="demo">购物支出总额</p>
+	<button type="button" onclick="myFunction()">click here!</button><br />
+	<p>你只能在html输出流中使用<strong>documet.write()</strong>,如果您在文档已加载后使用它（比如在函数中，会覆盖整个文档。</p>
+</body>
+</html>

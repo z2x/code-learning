@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<link rel="stylesheet" href="">
+	<style type="text/css" media="screen">
+		p.warning {
+			color: red;
+			margin-left: 15%;
+		}
+
+		p.firstChild:first-letter {
+			font-weight: bold;
+			font-size: 30px;
+		}
+
+		li:first-child {
+			text-transform: uppercase;
+		}
+
+		a:link:hover {
+			color: red;
+		}
+
+		a:visited:hover {
+			color: maroon;
+		}
+
+		p.firstLine:first-line {
+			font-weight: bold;
+		}
+
+		p.setBeforeStyle:before {
+			content: "***";
+		}
+
+		p.setAfterStyle:after {
+			content: "The End.";
+			font-weight: bold;
+			background-color: #00FFFF;
+		}
+	</style>
+</head>
+
+<body>
+	<p>在HTML和XHTML中，锚元素（a）会建立从一个文档到另一个文档的链接，锚实际上会有两种基本类型：已访问的和未访问的。这些类型就称为伪类（pseudo-child），而使用这些伪类的选择器则称为伪类选择器（pseudo-child selector）。</p>
+	<h2>链接伪类：</h2>
+	<p>[:link]：指示作为超链接（即有一个href属性）并指向一个未访问地址的所有锚；</p>
+	<p>[:visited]：指示作为已访问地址超链接的所有锚。</p>
+
+	<h2>动态伪类：</h2>
+	<p>[:focus]：指示当前拥有输入焦点的元素；</p>
+	<p>[:hover]：指示鼠标指针停留在哪个元素上；</p>
+	<p>[:active]：指示被用户输入激活的元素。</p>
+	<p class="warning">注意：动态伪类可以应用到任何元素。</p>
+
+
+	<h3>使用first-child伪类来选择第一个子元素：</h3>
+	<ul>
+		<li>this is first li</li>
+		<li>this is second li</li>
+		<li>this is third li</li>
+	</ul>
+
+	<h3>使用first-letter伪类来实现首字母样式设置：</h3>
+	<p class="firstChild">GOOD</p>
+
+	<h3>使用first-line伪类来设置第一行的样式：</h3>
+	<p class="firstLine">强烈建议为 html 根元素指定 lang 属性，<br />从而为文档设置正确的语言。这将有助<br />于语音合成工具确定其所应该采用的发<br />音，有助于翻译工具确定其翻译时所应遵守的规则等等。</p>
+
+	<h3>结合伪类：</h3>
+	<p>可在同一个选择器中结合使用伪类：</p>
+	<p>在下面例子中，通过设置可实现将鼠标指针悬停链接时变为红色，访问过后鼠标指针悬停将变为褐红色。</p>
+	<a href="https://www.baidu.com">百度一下，你就知道</a>
+
+	<h3>设置之前和之后元素的样式：</h3>
+	<p>可使用:befor和:after直接设置样式。</p>
+	<P class="setBeforeStyle">在p元素之前添加符号[***]。</P>
+	<p class="setAfterStyle">在p元素后边添加内容[The End.]</p>
+</body>
+
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>javascript能够对事件作出反应</title>
+	<link rel="stylesheet" href="">
+</head>
+<body>
+	<h1>javascript能够对事件作出反应</h1>
+	<button type="button" onclick="alert('Welcome!')">点击这里</button>
+	<p>alert函数在javascript中并不常用，但它对于代码测试非常方便。</p>
+	<p>onclick事件的使用</p>
+	<h1>华氏度转换为摄氏度</h1>
+	<script>
+	var degFahren = prompt("请输入所需转换的数值",50);
+	var degCent;
+	degCent = 5/9 * (degFahren - 32);
+	document.write(degFahren + degCent + <br>");
+
+	var greetingstring = "hello";
+	var myname = prompt("请输入你的名字","朱迪");
+	var concatstring;
+	document.write(greetingstring + " " + myname + "<br>");
+	concatstring = greetingstring + " " + myname;
+	document.write(concatstring);
+
+	
+	</script>
+</body>
+</html>

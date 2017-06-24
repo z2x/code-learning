@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>table</title>
+	<link rel="stylesheet" href="">
+	<style>
+		#colgroup1{
+			background-color:LightSteelBlue;
+		}
+		#colgroup2{
+			background-color:gray;
+		}
+		#col1{
+			font-size:small;
+		}
+	</style>
+</head>
+<body>
+	<table  border="" style="text-align: center;">
+		<caption style="font-size: 25px;">Results of the Fruit Survey</caption>
+<!-- 		<colgroup id="colgroup1" span="3" /> -->
+<!-- 		<colgroup id="colgroup2" span="2" /> -->
+			<colgroup id="colgroup1">
+				<col id="col1And2" span="2" />
+				<col id="col3" />
+			</colgroup>
+			<colgroup id="colgroup2" span="2" />
+		<thead>
+			<tr>
+				<th>rank</th>
+				<th>Name</th>
+				<th>Color</th>
+				<th colspan="2">Size & Votes</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<th>Favorite</th>
+				<td>Apples</td>
+				<td>Green</td>
+				<td>Medium</td>
+				<td>500</td>	
+			</tr>
+			<tr>
+				<th>2rd Favorite</th>
+				<td>Oranges</td>
+				<td>Orange</td>
+				<td>Large</td>
+				<td>450</td>
+			</tr>
+			<tr>
+				<th>3rd Favorite</th>
+				<td rowspan="2" colspan="2">Pomegranates and cherries can both come in a range of colcors and sizes.</td>
+				<td>203</td>
+			</tr>
+			<tr>
+				<th rowspan="2">Joint 4rd</th>
+				<td>Cherries</td>
+				<td rowspan="2">75</td>
+			</tr>
+			<tr>
+				<td>Pineapple</td>
+				<td>Brown</td>
+				<td>Very large</td>
+			</tr>
+			<tfoot>
+				<tr>
+					<th colspan="5">&copy; 2016 zhufind@yeah.net.</th>
+				</tr>
+			</tfoot>
+		</tbody>
+	</table>
+</body>
+</html>

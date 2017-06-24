@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>input元素</title>
+	<link rel="stylesheet" href="">
+</head>
+<body>
+	<h1>定制input元素</h1>
+	<h2>用input元素输入文字</h2>
+	<p>如果要使用多行文本框，请使用textarea元素。</p>
+	<h3>设定元素大小</h3>
+	<p>maxlength属性设置了用户能够输入的字符的最大数目；<br />
+	size属性则设定了文本框能够显示的字符数目,对用户输入的字符数目未做限制。</p>
+	<form action="" method="post">
+		<p>
+			<label for="name">
+				name：<input maxlength="10" name="name" />
+			</label>
+		</p>
+		<p>
+			<label for="city">
+				city：<input size="10" name="city" />
+			</label>
+		</p>
+		<p>
+			<label for="fave">
+				fruit：<input maxlength="10" size="10" name="fave">
+			</label>
+			<button type="submit">submit</button>
+		</p>
+	</form>
+
+	<h3>设置初始值和占位式提示</h3>
+	<p>可使用placeholder属性设置一段提示文字；<br />
+	使用value属性设置一个默认值。</p>
+	<form action="" method="post">
+		<p>
+			<label for="name">
+				name:<input type="" name="name" placeholder="请输入您的姓名">
+			</label>
+		</p>
+		<p>
+			<label for="age">
+				age:<input type="" name="age" value="23">
+			</label>
+		</p>
+	</form>
+
+	<h3>使用数据列表</h3>
+	<p>将input元素的list属性设置为一个dataliat元素的id属性值，这样用户在文本框中输入数据时只须从后一元素提供的选项中进行选择。</p>
+	<form action="" method="post">
+		<p>
+			<label for="name">
+				name:<input type="" name="name" placeholder="请输入您的姓名">
+			</label>
+		</p>
+		<p>
+			<label for="fruit">
+				fruit:<input type="" name="fruit" list="fruitlist">
+			</label>
+		</p>
+	</form>
+	<datalist id="fruitlist">
+		<option value="apples" label="small apples"></option>
+		<!-- value属性值在该元素代表的选项被选中时就是input元素所用的数据值 -->
+		<!-- 使用label属性也可以设置list的显示信息 -->
+
+		<option value="oranges">橙子</option>
+		<option value="cherries"></option>
+	</datalist>
+
+	<h3>生成只读或被禁用的文本框</h3>
+	<p>使用属性：readonly和disabled</p>
+	<form action="" method="post">
+		<p>
+			<label for="name">
+				name:<input type="" name="name" id="name" placeholder="请输入您的姓名" readonly>
+			</label>
+		</p>
+		<p>
+			<label for="name">
+				name:<input type="" name="name" id="name" placeholder="请输入您的姓名" disabled>
+			</label>
+		</p>
+	</form>
+
+	<h2>用input输入密码</h2>
+	<p>type属性设置为password的input元素用于输入密码。</p>
+	<form action="" method="post">
+		<p>
+			<label for="password">
+				password:<input type="password" name="password" id="password" placeholder="请输入您的密码，不少于6个字符">
+			</label>
+		</p>
+	</form>
+
+	<h2>用input生成按钮</h2>
+	<p>将input元素的type属性设置为submit、reset和button会生成类似button元素那样的按钮。</p>
+	<form action="" method="post">
+		<input type="submit" value="submit">
+		<input type="reset" value="reset">
+		<input type="button" value="button">
+	</form>
+
+	<h2>用input元素获取数值</h2>
+	<form action="" method="post">
+		<p>
+			<label for="age">
+				你的年龄是：<input type="number" name="age" id="age" step="1" min="0" max="150" value="18">
+				<!-- 为input添加了number类型，病并将该元素的最小值设置为0，最大值为150，步长和初始值设置为1。 -->
+			</label>
+		</p>
+	</form>
+
+	<h2>用input元素获取指定范围内的数值</h2>
+	<p>获取数值的另一种方法是使用range型input元素，两者支持的属性相同，只是显示效果不同。</p>
+	<form action="" method="post">
+		<p>
+			<label for="age">
+				您的年龄是：<input type="range" name="age" id="age" step="1" min="1" max="150" value="18">
+			</label>
+		</p>
+	</form>
+
+	<h2>用input元素获取布尔型输入</h2>
+	<p>checkbox型input元素会生成供用户选择是或否的复选框。</p>
+	<form action="" method="post">
+		<p>
+			<label for="student">
+				你还是一名学生吗？<input type="checkbox" name="student" id="student">
+			</label>
+		</p>
+	</form>
+
+	<h2>用input元素生成一组固定选项</h2>
+	<p>radio型input元素可以用来生成一组单选按钮，供用户从一批固定选项中做出选择。</p>
+	<form action="" method="post">
+		<p>
+			<fieldset>
+				<legend>你最喜欢的水果是什么？</legend>
+				<label for="apple"><input type="radio" name="apple" id="apple" value="apple">苹果</label>
+				<label for="orange"><input type="radio" name="orange" id="orange" value="orange">橙子</label>
+				<label for="banana"><input type="radio" name="banana" id="banana" value="banana">香蕉</label>
+			</fieldset>
+			<!-- 每一个radio型input元素都代表提供用户一个选择，只有将name属性设置为相同的值，选择结果才会相互排斥。 -->
+		</p>
+	</form>
+	<h2>用input元素获取有规定格式的字符串</h2>
+	<p>type属性设置为email，tel和url的input元素能接受额输入数据分别为有效的电子邮箱、电话号码和URL。</p>
+	<p>email型input元素还支持multiple属性，用于接受多个电子邮箱地址。</p>
+
+	<h2>用input元素获取时间和日期</h2>
+	<form action="" method="post">
+		<p>
+			<label for="time">
+				time:<input type="date" name="time" id="time">
+			</label>
+		</p>
+	</form>
+
+	<h2>用input获取颜色值</h2>
+	<p>color型input元素用来选择颜色。这种input元素中的颜色以7个字符的格式表示：# + 三个两位十六进制数，分别代表红、绿、蓝三种原色的值。</p>
+	<form action="" method="post">
+		<p>
+			<label for="color">
+				color:<input type="color" name="color" id="color">
+			</label>
+		</p>
+	</form>
+
+	<h2>用input元素获取搜索词</h2>
+	<p>search型input元素会生成一个单行文本框，供用户输入搜索用词。</p>
+	<form action="" method="post">
+		<p>
+			<label for="search">
+				search:<input type="search" name="search" id="search">
+			</label>
+		</p>
+	</form>
+
+	<h2>用input元素生成图像按钮和分区相应图</h2>
+	<p>image型input元素生成的按钮显示为一幅图像，点击它可以提交表单。</p>
+	<form action="" method="post">
+		<p>
+			<input type="image" src="http://pic.58pic.com/58pic/16/14/87/38h58PICAGB_1024.jpg" width="50px" name="submit">	
+		</p>
+	</form>
+
+	<h2>用input元素上传文件</h2>
+	<p>设置input类型为file型即可。</p>
+	<form action="" method="post" enctype="multipart/form-data">
+	<!-- 表单编码类型为multipart/form-data的时候才能上传文件 -->
+		<p>
+			点击上传文件:<input type="file" name="file" id="file">
+		</p>
+	</form>
+</body>
+</html>

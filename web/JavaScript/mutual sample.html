@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>鼠标事件</title>
+	<link rel="stylesheet" href="">
+</head>
+<body>
+	<h1>捕获鼠标事件</h1>
+	</h2>用户在交互过程中产生的具体鼠标事件	</h2>
+	<p>Click ———用户点击鼠标时触发</p>
+	<p>DbClick ———用户双击鼠标时触发</p>
+	<p>MouseDown ———用户按下鼠标键触发（click事件前半部分）</p>
+	<p>MouseUp ———用户释放鼠标时触发（click事件前后部分）</p>
+	<p>MouseOut ———当鼠标指针离开对象物理边界时触发</p>
+	<p>MouseOver ———当鼠标指针进入对象物理边界时触发</p>
+	<p>MouseMove ———当鼠标指针在对象物理边界内移动时触发</p>
+	<p>MouseMenu ———当鼠标指针在对象物理边界内移动时触发</p>
+	<script type="text/javascript">
+		function onclick_callback(event) {
+    	var eType = event.type;
+	    /* the following is for compatability */
+	    /* Moz populates the target property of the event object */
+	    /* IE populates the srcElement property */
+	    var eTarget = event.target || event.srcElement;
+
+	    alert( "Captured Event (type=" + eType + ", target=" + eTarget );
+	  }
+	</script>
+	<span onclick="onclick_callback(event);">Click Here</span>
+
+
+</body>
+</html>

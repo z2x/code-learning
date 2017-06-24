@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>hello world</title>
+	<link rel="stylesheet" href="">
+</head>
+<body>
+	<h1 id="myMessage"></h1>
+	<h2 class="centered">
+		Hey, check out <a href="http://www.baidu.com/" id="redirect"> my cat's Web site</a>.
+	</h2>
+	<h2>Famous Presidential Quotes</h2>
+	<form action="#">
+		<input type="button" id="Lincoln"value="Lincoln">
+		<input type="button" id="Kennedy"value="Kennedy">
+		<input type="button" id="Nixon" value="Nixon">
+	</form>
+<script>
+	alert("Welcome to my JavaScript page!");	//警告对话框帮助你与用户进行通信
+
+	document.write("开始学习JavaScript的第一天，come on！");
+
+	/*
+	This is an example of a long JavaScript comment. Note the characters at the beginning and ending of the
+	*
+	This is an example of a long JavaScript comment. Note the characters at the beginning and ending of the
+	➝ comment.
+	This script adds the words "Hello,world!" into the body area of the HTML page.
+	*/
+	window.onload = WriteMessage		// Do this when page finishes loading
+	function WriteMessage(){
+		// Here's where the actual work gets done
+		document.getElementById("myMessage").innerHTML = "hello world!";
+
+	}
+
+	// 可以根据用户对提示的反应给出相应的回复
+	if (confirm("你麻麻叫你回家吃饭了吗？")) {
+		document.write("赶紧回家吃饭");
+	}
+	else {
+		document.write("还能再dota一把！");
+	}
+
+
+	// 可以使用对话框询问用户并处理回复
+	var ins = prompt("What do you want to say?", "");
+	if (ins) {
+		document.write("You said:" + ins);
+	}
+	else{
+		document.write("You refused to say anything!");
+	}
+ 
+	window.onload = initAll;
+	function inintAll(){
+		document.getElementById("redirect").onclick = initRedirect;	
+	}
+	function initRedirect(){
+		alert("We are not responsible for the content of pages outside our site");
+	}
+
+// 有时候，在用户单击链接之后，但是在浏览器转到链接的目的地之前，希望执行某种操作。典型
+// 的示例是，在用户进入站点上的特定页面之前发出警告，或者在用户离开站点时给出明确的提示。在
+// 这个示例中，我们将弹出一个警告对话框，然后再转到最终的目的地。
+/*
+window.onload = initAll;
+function initAll() {
+document.getElementById("redirect").onclick = initRedirect;
+window.location = this;
+alert("We are not responsible for the content of pages outside our site");
+window.location = this;
+return false;
+}
+*/
+
+// 使用 switch/case 语句针对多种可能性进行检查
+function initAll() {
+document.getElementById("Lincoln").onclick = saySomething;
+document.getElementById("Kennedy").onclick = saySomething;
+document.getElementById("Nixon").onclick = saySomething;
+}
+function saySomething() {
+switch(this.id) {
+case "Lincoln":
+alert("Four score and seven years ago...");
+break;
+case "Kennedy":
+alert("Ask not what your country can do for you...");
+break;
+case "Nixon":
+alert("I am not a crook!");
+break;
+default:
+	}
+}
+
+</script>
+</body>
+</html>
+
+阅读到p29

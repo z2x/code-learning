@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>javascript能够改变html的内容</title>
+	<link rel="stylesheet" href="">
+</head>
+<body>
+	<h1>javascript能够改变html的内容</h1>
+	<h2>my first javascript</h2>
+	<p id="demo">javascript能够改变html的内容</p>
+	<p id="hello">你好！</p>
+	<button type="button" onclick="changemeat()">Click here!</button>
+	<script>
+	function changemeat(){
+		x = document.getElementById('demo')	//找到元素
+		x.innerHTML = "Hello javascript!";	//改变内容
+		document.getElementById('hello').innerHTML = "hello world!"
+	}
+	</script>
+</body>
+</html>

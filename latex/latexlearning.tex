@@ -1,0 +1,164 @@
+\documentclass[12pt, a4paper,openany]{book}%book默认新的章节从奇数页开始，通常采用openany选项，使得新的章节可以从奇数页和偶数页开始
+\usepackage{ctex}%使用中文字体宏包
+\usepackage{amsfonts}
+\usepackage{graphicx}%图片宏包
+\usepackage{hyperref}%超链接宏包
+\usepackage{fancyhdr}%页眉页脚宏包
+\usepackage{listings}% 使用listings扩展包，支持代码高亮等效果
+% 为代码扩展包listings设置全局性样式
+\lstset{
+	basicstyle = \ttfamily,
+	language   = TeX,
+	tabsize    = 2,
+	breaklines = true,
+	frame      = single
+}
+\title{\LaTeX{}学习手册}
+\author{朱恩迪}
+\date{}
+\begin{document}
+\maketitle
+\tableofcontents %列出目录
+\chapter{初学内容}
+\section{牛刀小试}
+Hello, world.						%转行使用回车键
+
+你好，世界
+
+\section{初入战场}
+\subsection{改变字体看一下}
+这个字显示为正体,					%字体显示方式的改变
+这个字显示为{\bf 粗体}(boldface),
+这个字显示为{\it 花体}(italic)\\
+字体大小改变看看{\tiny\LaTeX{}}，超大号字体显示{\huge\LaTeX{}}
+
+\subsection{回味下数学公式}
+$x + 2y = 3$，$x^{b+2}=8$，$x^2=8$  %数学符号的简单运用
+
+$\lim_{\Delta x\to 0} \frac{f(x_0+\Delta x) - f(x_0)}{\Delta x}$，The anti-derivative of $1/x$ is $$ \int \frac{1}{x} \,dx = \ln x + C $$ where $C$ is an arbitrary constant.
+
+\subsection{列举给你看看}
+无序列举（itemize）
+\begin{itemize}
+\item Calculus
+\item Linear Algebra
+\item Basic Computer Concepts
+\end{itemize}
+
+有序列举（enumerate）
+\begin{enumerate}
+\item one
+\item two
+\item three
+\end{enumerate}
+
+提示列举（description）
+\begin{description}
+\item [Calculus] Integration and Differentiation
+\item [Linear Algebra] Vector space and Basis
+\item [Basic Computer Concepts] Programming Language
+\end{description}
+
+\subsection{上标与数学公式}
+%上标在数学公式中的简单应用
+For each $\epsilon > 0$, there exists a $\delta > 0$
+such that, if $0 < |x - c| < \delta$, 
+then $|f(x) - L| < \epsilon$
+
+简单分式的使用方法
+$n/2$=$(m+n)/n$
+
+使用sqrt来编辑根号,，例如：
+$\sqrt{x+y}$
+
+\subsection{手写字体与黑板粗体字}
+使用mathcal命令来输入手写字体，字母中不能输入小写字母，例如：
+Choose $\mathcal{F}$ such that $\mathcal{F}(x) > 0$，$\mathcal{A}$
+
+黑板粗體字 (Blackboard Bold)的使用方法：（1）使用amsfonts套件，并插入Bbb命令，例如：
+$\Bbb{A}$，$\Bbb{B}$，$\Bbb{A}$
+
+\subsection{向左走向右走}
+箭头符号的使用实例：
+向左走：$\Leftarrow$，向右走：$\Rightarrow$，左右徘徊：$\Longleftrightarrow$
+
+\subsection{看看在正文中显示控制命令}
+\TeX{}是一种优秀的电子排版系统。该系统由美国著名计算机学家高德纳（唐纳德·尔文·克努斯）发明。
+
+\LaTeX{}是\TeX{}中的一种格式(format)，是建立在\TeX{}基础上的宏语言，也就是说，
+每一个\LaTeX{}命令实际上最后都会被转换解释成几个甚至上百个\TeX{}命令。
+但是，普通用户可以无需知道这中间的复杂联系。\LaTeX{}根据人们排版文章的习惯，定义了许多命令和模板，通过这些命令和模板，让普通用户能快速得到漂亮的排版结果。
+
+\subsection{如何设置章节}
+注意：章节只有在文档类型为书籍时，才可正常使用。
+使用 chapter来进行章节设置。
+
+\subsection{脚注的设置}
+使用footnote来进行脚注设置，例如：本书作者为朱恩迪\footnote{1993-?}
+
+\subsection{插入图形}
+使用宏包的插图功能，需要使用graphicx，然后就可以使用includegraphics命令插入图片：
+
+\includegraphics[width=6cm]{desk.jpg}
+
+很大的图片如果使用固定位置列出，不方便进行排版和分页，因此需要使用浮动体（float）来使插入的图片放在可以变动的相对位置环境中，例如：
+
+\begin{figure}[ht]
+\centering
+\includegraphics[scale=0.3]{desk.jpg}
+\caption{我的桌面壁纸其实是这样子}
+\label{fig:desk}
+\end{figure}
+
+\subsection{插入超链接}
+在导言区载入 hyperref 宏包，会自动建立目录、脚注和参考文献的内部超级链接。
+如果还不会，\href{http://www.baidu.com}{百度}一下，你就知道。
+
+\subsection{插入页眉页脚}
+在\LaTeX{}中预设了四种页眉页脚的样式，分别是 empty、plain、headings 和
+myheadings。若要使用用自定义页眉页脚, 一般都要使用宏包 fancyhdr。
+
+\fancyhf{}
+	\fancyhead[LEO]{\LaTeX{}学习手册}
+	\pagestyle{fancy}
+\subsection{原来两个反斜杠可以换行}
+是不是真的呢？
+真的换行了，不过没有缩进哟。
+
+\chapter{\LaTeX{}绘制图表}
+\section{表格环境的定义}
+环境tabular和tabular是生成表格的基本工具，其定义（语法）为：
+
+
+\chapter{\LaTeX{}插图指南}
+
+\section{前言}
+在\LaTeX{}可以可以使用几乎所有的图片格式，但eps是最早引入\LaTeX{}中的图像格式，因此对他的支持也是最好的。
+
+要在\LaTeX{}中插入一幅图像，可以使用以下命令来调用宏包：
+	\begin{lstlisting}
+		\usepackage{graphicx}
+	\end{lstlisting}
+
+然后，在文件中使用以下命令来添加图片：
+	\begin{lstlisting}
+		\includegraphics{file.eps}
+	\end{lstlisting}
+
+还可以使用width和height选项来定义图像的宽度和高度：
+	\begin{lstlisting}
+		\includegraphics[width=4cm]{file.eps}
+		\includegraphics[height=3cm]{file.eps}
+	\end{lstlisting}
+
+另外，使用angle命令来旋转图像：
+	\begin{lstlisting}
+		\includegraphics[angle=45]{file.eps}
+	\end{lstlisting}
+
+\section{graphicx相关选项解释}
+	\begin{tabular}{ll}
+		height & 图形的高度 \\
+		totalheight & 图形的全部高度 \\
+	\end{tabular}
+\end{document}

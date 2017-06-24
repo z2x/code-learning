@@ -1,0 +1,87 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="description" content=>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>first exploration html</title>
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="author" href="humans.txt">
+        <style type="text/css">
+        	.href{
+        		color:green;
+        		font-size:x-large;
+        		padding:5px;
+        	}
+        	#idintroduction{
+        		background:grey;
+        		color:white;
+        	}
+
+        </style>
+        </style>
+    </head>
+    <body>
+        <p>I like <code>apples</code> and oranges.</p>
+
+        <!-- 使用虚元素 -->
+        <hr>
+		<p>Today is warm.</p>
+		<hr />
+		<p>Today is sunny.</p>	
+
+		<!-- 使用元素属性 -->
+		<p>I like<a class="link" href="like.html" id="firstlink"> apples</a> and oranges.</p>
+
+		<!-- 使用布尔属性 -->
+		<p>布尔属性是disabled，元素中只添加了该元素的名称，可以阻止用户输入数据。为布尔属性指定空字符串值：</p>
+		<p>Enter your name:<input disabled></p>
+		<p>Enter your name:<input disabled=""></p>
+		<p>Enter your name:<input disabled="disabled"></p>
+
+		<p>使用自定义属性：</p>
+		<p>Enter your name:<input disabled="true" data-creator="adam" data-purpose="collection"></p>
+		<p>自定义属性是对html4中“浏览器应当忽略不认识的属性”这种广泛应用当然技巧的正式规定。</p>
+
+		<p>使用accesskey属性可以设定一个或几个用来选择页面上的元素的快捷键,使用快捷键即可访问指定元素。本例中使用alt+属性值即可访问：</p>
+		<form>
+			Name：<input type="text" name="name" accesskey="n"><br />
+			Password:<input type="password" name="password" accesskey="p"><br />
+			<input type="submit" value="Log In" accesskey="s">
+		</form>
+
+		<p>class属性用来将元素归类，能够找出文档中的某一类元素或为某一类元素应用css样式。</p>
+		<p><a  class="href" href="https://www.baidu.com">百度一下，你就知道。</a></p>
+
+		<p>使用contentediable属性让用户修改页面上的内容。</p>
+		<p contenteditable="true">It is raining right now.</p>
+
+		<p>dir属性用来规定元素中文字的方向：</p><br />
+		<p dir="ltr">ltr -- 从左到右</p><br />
+		<p dir="rtl">rtl -- 从右到左</p>
+
+		<p id="idintroduction">id属性用来给元素分配一个唯一的标识符，这种标识符通常用来将样式应用到元素上或者在javascript程序中用来选择元素。</p>
+		<p>id属性还可用来导航到文档中的特定位置。</p>
+
+		<p>lang属性用来说明元素内容使用的语言。lang属性必须使用ISO语言代码。</p>
+		<p lang="en">Hello World！</p>
+		<p lang="ko">세계, 안녕하세요!</p>
+		<p lang="ja">こんにちは世界！</p>
+
+		<p>使用spellcheck属性来使浏览器对元素内容进行检查。</p>
+		<textarea spellcheck="true" cols="30" rows="10">spellchack.</textarea>
+		
+		<p>添加tabindex属性，可以使用tab键在各元素之间切换，可以改变默认转移顺序，值为1的元素会第一个被选中，按一下tab键，值为2的元素被选中，值为-1的元素不会被选中。</p>
+		<form>
+			Name：<input type="text" name="name" accesskey="n" tabindex="1"><br />
+			City:<input type="text" name="city" accesskey="c" tabindex="-1">
+			Password:<input type="password" name="password" accesskey="p" tabindex="2"><br />
+			<input type="submit" value="Log In" accesskey="s">
+		</form>
+
+
+
+
+        <script src="js/main.js"></script>
+    </body>
+</html>

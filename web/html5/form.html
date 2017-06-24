@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<link rel="stylesheet" href="">
+</head>
+<body>
+	<form method="post" action="http://test:8080/from">
+		<input name="fave" />
+		<button>submit</button>
+	</form>
+
+	<br />
+
+	<form method="post" action="">
+		<input type="" name="fave"/>
+		<input type="" name="name"/>
+		<button>submit</button>
+	</form>
+
+	<br />
+	<p>对form表单的autocomplete属性进行设置，可以对表单的自动完成功能进行修改，其属性值有两个：on和off。</p>
+	<form action="" method="post" target="blank" autocomplete="off"> <!-- 设置表单自动完成功能禁用 -->
+		<input autocomplete="on" type="" name="fave"/><!-- 开启input元素自动完成功能 -->
+		<input type="" name="name"/>
+	</form>
+
+	<br />
+	<p>给form添加name属性，值不会被发送给服务器，该属性的用处仅限于DOM中，如果input元素不设置name属性，那么用户在其中输入的数据在提交表单时不会被发送给服务器。</p>
+	
+	<p>表单反馈信息的目标显示位置，可使用target属性进行设置，该属性的工作机制与a元素的target元素属性一致。</p>
+
+	<h4>在表单中添加说明标签</h4>
+	<p>使用元素：label</p>
+	<form action="" method="post">
+		<p><label for="fave">fruit:<input id="fave" type="" name="fave"></label></p>
+		<p><label for="name">name:<input id="name" type="" name="name"></label></p>
+		<button>submit</button>
+	</form>
+
+	<h4>自动聚焦到某个input元素</h4>
+	<p>让表单显示出来的时候即聚焦到某个input元素，用户可以直接在其中输入数据而不必先动手选择它。</p>
+	<p>使用属性：autofocus</p>
+	<p>autofocus只能用于一个input元素上。要是有几个元素都设置了这个属性，那么浏览器将会自动聚焦于其中的最后一个属性。</p>
+	<form action="" method="post">
+		<p><label for="fave">fruit:<input autofocus id="fave" type="" name="fave"></label></p>
+		<p><label for="name">name:<input id="name" type="" name="name"></label></p>
+		<button>submit</button>
+	</form>
+	
+	<h4>禁用单个input元素</h4>
+	<p>使用属性：disabled</p>
+	<form action="" method="post">
+		<p><label for="fave">fruit:<input type="" name="fave" id="fave"></label></p>
+		<p><label for="name">name:<input type="" name="name" id="name" disabled></label></p>
+	</form>
+
+	<h4>对表单进行编组</h4>
+	<p>使用元素：fieldset</p>
+	<p>使用legend元素可以对fieldset元素添加说明标签。</p>
+	<p>在fieldset元素后设置disabled属性可禁用整组input元素。</p>
+	<form action="" method="post">
+		<fieldset>
+			<legend>lengend one</legend>
+			<p><label for="name">name:<input type="" name="name" id="name"></label></p>
+			<p><label for="city">city:<input type="" name="city" id="city"></label></p>
+		</fieldset>
+		<fieldset disabled>
+			<legend>legend two</legend>
+			<p><label for="one">one:<input type="" name="one" id="one"></label></p>
+			<p><label for="two">two:<input type="" name="two" id="two"></label></p>
+		</fieldset>
+	</form>
+
+	<h4>使用button元素</h4>
+	<p>button元素的type属性的值：<br />
+	submit:提交表单；<br />
+	reset:重置表单；<br /></p>
+	<form action="" method="post">
+		<p><label for="name">name:<input type="" name="name" id="name"></label></p>
+		<p><label for="fave">favorite:<input type="" name="fave" id="fave"></label></p>
+		<button type="submit">submit</button>
+		<button type="reset">reset</button>
+	</form>
+</body>
+</html>

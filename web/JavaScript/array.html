@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>数组</title>
+	<link rel="stylesheet" href="">
+</head>
+<body>
+	<h1>数组</h1>
+	<p>要创建新数组，需要声明一个变量名，并使用new关键字和array()函数来说明这是一个数组。</p>
+	<p>例如：</p>
+	<p>var myArray = new Array();</p>
+	<p>在数组中存储数据时，只需在定义数组时，把用逗号分隔的数据放在Array()后面的圆括号中。</p>
+	<p>例如：<br>var myArray = new Array("Paul",345,"Bob",99);</p>
+	<script>
+	var myArray = new Array("Paul",345,"Bob",99);
+	document.write("myArray[0]=" + myArray[0] + "<br>");
+	document.write("myArray[1]=" + myArray[1] + "<br>");
+	document.write("myArray[2]=" + myArray[2] + "<br>");
+	document.write("myArray[3]=" + myArray[3] + "<br>");
+	var Array = new Array();
+	myArray[0] = "zhufind";
+	document.write("myArray[0]=" + myArray[0] + "<br>");
+
+	document.write("多维数组");
+	var personal = new Array();
+
+	personal[0] = new Array();
+	personal[0][0] = "name1";
+	personal[0][1] ="age1";
+	personal[0][2] ="address";
+
+	personal[1] = new Array();
+	personal[1][0] = "name2";
+	personal[1][1] = "age2";
+	personal[1][2] = "adress";
+
+	personal[2] = new Array();
+	personal[2][0] ="name2";
+	personal[2][1] ="age2";
+	personal[2][2] ="address";
+
+	document.write("name: " + personal[0] + "<br>");
+
+	</script> 
+	<p>定义了数组之后，就可以在数组中保存数据了，每次使用新索引来保存数据时，JavaScript都会自动创建一个新的存储空间。<br>注意:第一个元素的索引为myArray[0].</p>
+	<h2>多维数组</h2>
+	<p>JavaScript只支持一维数组，不支持不支持多位数组。但是JavaScript允许在一个数组内部创建另一个数组，从诶模拟出多位数组。</p>
+
+</body>
+</html>

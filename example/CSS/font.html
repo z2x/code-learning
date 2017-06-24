@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>font</title>
+	<link rel="stylesheet" href="">
+</head>
+<body>
+	<h1>字体系列</h1>
+	<ul>
+		<li>Serif字体：<br />这些字体成比例，而且有上下短线。如果这些字体中的所有字符根据其不同大小有不同的宽度，则称这些字体成比例。<br />如：Times，<em  style="font-family:Georgia;font-size: x-large;">Georgia</em>，New Century Schoolbool。</li>
+		<li>Sans-serif字体：<br />这些字体成比例，但没有上下短线。<br />如：<em style="font-family:Helvetica;font-size: x-large;">Helvetica</em>，Geneva，Verdana，Arial，Univers。</li>
+		<li>Monospace字体：<br />这些字体不成比例，通常用于模拟打字机打出的文本、老式点阵打印机的输出，或者老式视频显示终端的输出。每个字符的宽度完全相同。可能有上下短线，也可能没有。<br />如：<em style="font-family:Courier;font-size: x-large;">Courier</em>，Courier New，Andale Mono。</li>
+		<li>Cursive字体：<br />模仿人的手写体，主要由曲线和serif字体中没有的笔画装饰组成。<br />如：Zapy Chancery，<em style="font-family:'Author Type';font-size: x-large;">Author</em>，Comic Sans。</li>
+		<li>Fantasy字体：<br />除去以上几种字体特征的字体。<br />如：Woodblock，<em style="font-family:Western;font-size: x-large;">Western</em>，Klingon。</li>
+	</ul>
+
+	<p>注意：<br />当字体名中有一个或者多个空格、或者字体名中包括#、%之类的符号，要在font-family声明中添加引号。且引号需要属性本身未曾使用过。</p>
+
+	<h1>字体加粗</h1>
+	<p>可以使用font-weight进行定义，其属性值主要为：</p>
+	<ul>
+		<li>normal：默认值。定义标准的字符。</li>
+		<li>bold：定义粗体字符。</li>
+		<li>bolder：定义更粗的字符。</li>
+		<li>lighter：定义更细的字符。</li>
+		<li>100~900：定义由细到粗的字符。400 等同于 normal，而 700 等同于 bold。</li>
+		<li>inherit：规定应该从父元素继承字体的粗细。</li>
+	</ul>
+
+	<h1>字体大小</h1>
+	<p>可以使用font-size进行定义，其属性值主要为：</p>
+	<ul>
+		<li>xx-small</li>
+		<li>x-small</li>
+		<li>small</li>
+		<li>medium</li>
+		<li>large</li>
+		<li>x-large</li>
+		<li>xx-large</li>
+	</ul>
+	<h1>字体风格</h1>
+	<p>可以使用font-style进行定义，其属性值主要为：</p>	
+	<ul>
+		<li style="font-style: italic;font-size: 25px;">italic(斜体):italic text sample.</li>
+		<li style="font-style: oblique;font-size: 25px;">oblique(倾斜):oblique text sample.</li>
+		<li>normal</li>
+		<li>inherit</li>
+	</ul>
+</body>
+</html>

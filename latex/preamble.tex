@@ -1,0 +1,121 @@
+% 使用fontspec扩展包，fontspec扩展包能直接使用系统的中文字体
+\usepackage{fontspec}
+
+% 使用xunicode扩展包，处理Unicode编码
+\usepackage{xunicode}
+
+% 使用listings扩展包，支持代码高亮等效果。
+\usepackage{listings}
+
+% 使用xeCJK扩展包，这样可分别设置中文和字母的字体，注意，这个宏包会被ctex宏包自动调用，因此无需手动调用
+% \usepackage{xeCJK}
+
+% 使用xcolor扩展包，这样能在文档中使用颜色
+\usepackage{xcolor}
+
+% 使用picinpar扩展包实现文字绕排
+\usepackage{picinpar}
+
+% 使用能生成超级链接的hyperref扩展包
+\usepackage{hyperref}
+
+% 使用自定义页眉页脚的fancyhdr扩展包
+\usepackage{fancyhdr}
+
+% 设置正文罗马字体族
+\setmainfont{OpenSans-Light}
+
+% 设置无衬线字体族
+\setsansfont{Lato-Light}
+
+% 设置打字机字体族
+\setmonofont{Consolas}
+
+\hypersetup{colorlinks,
+        linkcolor=black,
+        filecolor=black,
+        urlcolor=blue,
+        citecolor=black,}
+
+% 设置中文自动换行
+\XeTeXlinebreaklocale zh
+
+%% 给予TeX断行一定自由度
+\XeTeXlinebreakskip = 0pt plus 1pt
+
+% 设置全局行间距
+\linespread{1.5}
+
+% 为代码扩展包listings设置全局性样式
+\lstset{
+	numbers=left,
+	xleftmargin=2em,
+	xrightmargin=2em,
+	frame=shadowbox,
+	basicstyle       = \small\ttfamily,
+    stringstyle      = \ttfamily,
+	tabsize          = 2,
+	breaklines       = true,
+	frame            = single,
+	frameround       = tttt,
+	showstringspaces = false,
+	keywordstyle     = \color{black},
+  % commentstyle     = \color{red},
+	aboveskip        = 1em,
+	fontadjust       = true,
+}
+      
+
+% 载入页面设置包，并进行页面设置
+\usepackage[
+	a4paper,
+	inner         = 1.5cm,
+	outer         = 3cm,
+	top           = 2cm,
+	bottom        = 3cm,
+	bindingoffset = 1cm
+  ]{geometry}
+
+% 载入页眉页脚包
+\usepackage{fancyhdr}
+
+% 设置页眉页脚格式
+\pagestyle{fancy}
+\fancyhf{}
+\cfoot{\thepage}
+
+
+\setlength{\headheight}{12pt}
+
+% 载入pifont包，并设置脚注样式为带圈数字
+\usepackage{pifont}
+\renewcommand\thefootnote{\ding{\numexpr171+\value{footnote}}}
+
+% 使用footmisc宏包，并设置脚注为每一页都重新编号
+\usepackage[perpage]{footmisc}
+
+% 设置参考文献的样式为方括号中的数字
+\usepackage[super,square]{natbib}
+\bibliographystyle{gbt7714-2005}
+
+% 使用titlesec宏包，设置标题的字体、大小
+\usepackage{titlesec}
+\newfontfamily\hwzs{华文中宋}
+\newcommand{\sectionfontsize}{\fontsize{18pt}{18pt}\selectfont}
+\titleformat{\section}[hang]{\bfseries\hwzs\sectionfontsize}{\thesection}{1em}{}{}
+
+% 方便表格的处理
+\usepackage{multirow}
+\usepackage{booktabs}
+
+%方便数学公式的输入
+\usepackage{mathtools}
+
+%方便对插入图片的处理
+\usepackage{graphics}
+
+%对文章内容进行分栏
+\usepackage{multicol}
+
+% 方便数学字体（直立体小写希腊字母）的输入
+\usepackage{upgreek}

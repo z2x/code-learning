@@ -1,0 +1,30 @@
+%!TEX program = xelatex
+% 使用XeLaTeX编译引擎，方便utf-8编码
+
+% 设定文档类型为ctexbook，同时设定默认字体为小四。
+\documentclass[oneside,UTF8,zihao = -4]{ctexbook}
+
+% 载入配置文件
+\include{preamble}
+
+\begin{document}
+
+ % 开始前言目录，页码用罗马数字
+\frontmatter
+
+\title{\LaTeX{}学习笔记}
+\author{朱恩迪}
+\date{\today}
+
+% 制作首页
+\maketitle
+
+% 生成目录
+\tableofcontents
+
+% 开始正文，页码用阿拉伯数字
+\mainmatter 
+
+\include{about-tex}
+
+\end{document}
