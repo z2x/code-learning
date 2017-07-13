@@ -523,8 +523,244 @@ function htmlEscape(text) {
 }
 document.write(htmlEscape("<p class=\"greeting\">Hello World!</p>") + "<br>");
 
-var values = [2,43,-7,54];
-var max = Math.max.apply(Math,values);
+var values = [2, 43, -7, 54];
+var max = Math.max.apply(Math, values);
 document.write(max + "<br>");
-var max = Math.max.apply(Math,[2,43,-7,54]);
+var max = Math.max.apply(Math, [2, 43, -7, 54]);
 document.write(max + "<br>");
+
+var person = {};
+person.name = "Apple";
+person.age = 30;
+person.job = "work";
+person.sayName = function () {
+  document.write(this.name + "<br>");
+};
+person.sayName();
+
+var person = {};
+Object.defineProperty(person, 'name', {
+  configurable: true,
+  writable: true,
+  value: "Apple"
+});
+document.write(person.name + "<br>");
+person.name = "Mac";
+document.write(person.name + "<br>");
+delete person.name;
+document.write(person.name + "<br>");
+
+var book = {
+  _year: 2004,
+  edition: 1
+};
+document.write(book._year + "<br>");
+
+Object.defineProperty(book, "year", {
+  get: function () {
+    return this._year;
+  },
+  set: function (newValue) {
+    if (newValue > 2004) {
+      this._year = newValue;
+      this.edition += newValue - 2004;
+    }
+  }
+});
+book.year = 2017;
+document.write(book.edition + "<br>");
+
+var book = {};
+
+Object.defineProperties(book, {
+  _year: {
+    value: 2004
+  },
+
+  edition: {
+    value: 1
+  },
+
+  year: {
+    get: function () {
+      return this._year;
+    },
+
+    set: function (newValue) {
+      if (newValue > 2004) {
+        this._year = newValue;
+        this.edition += newValue - 2004;
+      }
+    }
+  }
+});
+
+book.year = 2017;
+document.write(book.edition + "<br>");
+
+var descriptor = Object.getOwnPropertyDescriptor(book, "edition");
+document.write(descriptor.value + "<br>");
+document.write(descriptor.configurable + "<br>");
+document.write(typeof descriptor.get + "<br>");
+
+function Person(name, age, job) {
+  this.name = name;
+  this.age = age;
+  this.job = job;
+  this.sayName = function () {
+    document.write(this.name)
+  };
+}
+var person1 = new Person("Nicholas", 27, "Engineer");
+var person2 = new Person("greg", 18, "Doctor");
+document.write(person1.name + "<br>");
+document.write(person1.constructor == Person + "<br>");
+document.write(person2.constructor == Person + "<br>");
+document.write(person2 instanceof Person);
+
+document.write(person1 instanceof Object);
+
+
+document.write(person1.sayName == person2.sayName);
+
+function Person(name, age, job) {
+  this.name = name;
+  this.age = age;
+  this.job = job;
+  this.sayName = sayName;
+}
+
+function sayName() {
+  document.write(this.name + "<br>");
+}
+
+var person1 = new Person("Nicolas", 29, "Software Engineer");
+var person2 = new Person("greg", 27, "Doctor");
+// person1.sayName();
+// person2.sayName();
+
+function Person() {}
+
+Person.prototype.name = "Nicholas";
+Person.prototype.age = 29;
+Person.prototype.job = "Software Engineer";
+Person.prototype.sayName = function () {
+  document.write(this.name + "<br>");
+};
+
+var person1 = new Person();
+person1.sayName();
+var person2 = new Person();
+person2.sayName();
+document.write(person1.sayName == person2.sayName + "<br>");
+person1.name = "zhufind";
+document.write(person1.hasOwnProperty("name") + "<br>");
+document.write(person2.hasOwnProperty("name") + "<br>");
+
+function Person() {}
+Person.prototype.name = "personName1";
+Person.prototype.age = 27;
+Person.prototype.job = "personJob1";
+Person.prototype.sayName = function () {
+  document.write(this.name + "<br>");
+};
+var person1 = new Person();
+var person2 = new Person();
+
+document.write(person1.hasOwnProperty("name") + "<br>");
+document.write("name" in person1);
+person1.name = "banana";
+document.write(person1.hasOwnProperty("name") + "<br>");
+
+function hasPrototypeProperty(object, name) {
+  return !object.hasOwnProperty(name) && (name in object);
+}
+
+document.write(hasPrototypeProperty(person2, "name") + "<br>");
+
+var keys = Object.keys(Person.prototype);
+document.write(keys + "<br>");
+
+var p1 = new Person();
+p1.name = "newP";
+p1.age = 18;
+var pKeys = Object.keys(p1);
+document.write(pKeys + "<br>");
+
+function Person() {}
+Person.prototype = {
+  name: "Nicholas",
+  age: 29,
+  job: "Software Engineer",
+  friends: ["one", "two"],
+  sayName: function () {
+    document.write(this.name + "<br>");
+  }
+};
+
+var person1 = new Person();
+var person2 = new Person();
+person1.friends.push("three");
+document.write(person1.friends + "<br>");
+document.write(person2.friends + "<br>");
+document.write(person1.friends === person2.friends + "<br>");
+
+function superType() {
+  this.colors = ["red", "blue", "green"];
+}
+
+function subType() {
+
+}
+subType.prototype = new superType();
+var instance1 = new subType();
+instance1.colors.push("white");
+document.write(instance1.colors + "<br>");
+var instance2 = new subType();
+document.write(instance2.colors + "<br>");
+
+function theold(){
+  this.colors = ["red","green","blue"];
+
+}
+function thenew(){
+  theold.call(this);
+}
+var colors1 = new thenew();
+colors1.colors.push("black");
+document.write(colors1.colors + "<br>");
+var colors3 = new thenew();
+document.write(colors3.colors + "<br>");
+
+var person = {
+  name: "html",
+  friends: ["css","Javascript","php"]
+};
+var anotherPerson = Object.create(person);
+anotherPerson.name = "python";
+anotherPerson.friends.push("C");
+
+var yetAnotherPerson = Object.create(person);
+yetAnotherPerson.name = "c++";
+yetAnotherPerson.friends.push("c#");
+
+document.write(person.friends + "<br>");
+
+var person = {
+  name: "html",
+  friends:["css","JavaScript","php"]
+};
+var anotherPerson = Object.create(person,{
+  friends: {
+    value: "python"
+  }
+});
+document.write(anotherPerson.friends + "<br>");
+
+function createAnother(original){
+  var clone = Object(original);
+  clone.sayHi = function(){
+    document.write("hello");
+  };
+  return clone;
+}
