@@ -719,11 +719,12 @@ document.write(instance1.colors + "<br>");
 var instance2 = new subType();
 document.write(instance2.colors + "<br>");
 
-function theold(){
-  this.colors = ["red","green","blue"];
+function theold() {
+  this.colors = ["red", "green", "blue"];
 
 }
-function thenew(){
+
+function thenew() {
   theold.call(this);
 }
 var colors1 = new thenew();
@@ -734,7 +735,7 @@ document.write(colors3.colors + "<br>");
 
 var person = {
   name: "html",
-  friends: ["css","Javascript","php"]
+  friends: ["css", "Javascript", "php"]
 };
 var anotherPerson = Object.create(person);
 anotherPerson.name = "python";
@@ -748,19 +749,166 @@ document.write(person.friends + "<br>");
 
 var person = {
   name: "html",
-  friends:["css","JavaScript","php"]
+  friends: ["css", "JavaScript", "php"]
 };
-var anotherPerson = Object.create(person,{
+var anotherPerson = Object.create(person, {
   friends: {
     value: "python"
   }
 });
 document.write(anotherPerson.friends + "<br>");
 
-function createAnother(original){
+function createAnother(original) {
   var clone = Object(original);
-  clone.sayHi = function(){
+  clone.sayHi = function () {
     document.write("hello");
   };
   return clone;
 }
+
+var cat = {
+  name: '',
+  color: ''
+}
+
+var cat1 = {};
+cat1.name = 'cat1';
+cat1.color = 'yellow';
+var cat2 = {};
+cat2.name = 'cat2';
+cat2.color = 'white';
+
+document.write(cat1.name + "is" + cat2.color + "<br>");
+
+function Cat(name, color) {
+  this.name = name;
+  this.color = color;
+}
+var cat1 = new Cat("cat1", "yellow");
+var cat2 = new Cat("cat2", "white");
+document.write(cat1.name + "is" + cat2.color + "<br>");
+document.write(cat1.constructor == Cat);
+document.write(cat2.constructor == Cat + "<br>");
+
+document.write("<br>");
+
+// 动物对象的构造函数
+function Animal() {　　　　
+  this.species = "动物";　　
+}
+//猫对象的构造函数
+// function Cat(name, color) {　　　　
+//   this.name = name;　　　　
+//   this.color = color;　　
+// }
+
+// 构造函数绑定：使用call或apply方法，将父对象的构造函数绑定在子对象上，即在子对象构造函数中加一行：
+function Cat(name, color) {
+  Animal.apply(this, arguments);
+  this.name = name;
+  this.color = color;
+}
+var cat1 = new Cat("damao", "yellow");
+document.write(cat1.species);
+document.write("<br>");
+
+
+// prototype模式
+// 动物对象的构造函数
+function Animal() {　　　　
+  this.species = "小动物";　　
+}
+//猫对象的构造函数
+function Cat(name, color) {　　　　
+  this.name = name;　　　　
+  this.color = color;　　
+}
+// 如果"猫"的prototype对象，指向一个Animal的实例，那么所有"猫"的实例，就能继承Animal了。
+
+// 将Cat的prototype对象指向一个Animal的实例
+Cat.prototype = new Animal();　　
+Cat.prototype.constructor = Cat;　　
+var cat1 = new Cat("大毛", "黄色");　　
+
+document.write(cat1.species); // 动物
+document.write("<br>");
+document.write(cat1.name + "<br>");
+
+var readBook = function(){
+    document.write(arguments.callee + "<br>");//这里返回的是read函数
+    document.write(arguments.caller + "<br>");//这里返回的应该是go函数
+};
+var go = function(){
+    readBook();
+};
+go();
+
+var pageWidth = window.innerWidth,
+    pageHeight = window.innerHeight;
+if(typeof pageWidth != "number"){
+  if(document.compatMode = "css1Compat"){
+    pageWidth = document.documentElement.clientWidth;
+    pageHeight = document.documentElement.clientHeight;
+  }else{
+    pageWidth = document.body.clientWidth;
+    pageHeight = document.body.clientHeight;
+  }
+}
+document.write("pageWidth: " + pageWidth + "<br>");
+document.write("pageHeight: " + pageHeight + "<br>");
+
+// setTimeout(function(){
+//   document.write("Hello World!" + "<br>");
+// },1000);
+
+// setInterval(function(){
+//   document.write("Let it Go" + "<br>");
+// },1000);
+
+var num = 0;
+var ax = 10;
+var intervalId = null;
+function incrementNumber(){
+  num ++;
+  if(num === max){
+    clearInterval(intervalId);
+  }
+}
+intervalId = setInterval(incrementNumber,500);
+
+document.write(navigator.appCodeName + "<br>");
+
+function hasPlugin(){
+  name = name.toLowerCase();
+  for(var i = 0;i < navigator.plugins.length;i ++){
+    if(navigator.plugins[i].name.toLowerCase().indexOf(name) > -1){
+      return true;
+    }
+  }
+  return false;
+}
+document.write(hasPlugin("Flash") + "<br>");
+document.write(hasPlugin("QuickTime") + "<br>");
+
+function getElement(id){
+  if(document.getElementById){
+    return document.getElementById(id);
+  }else if(doument.all){
+    return document.all[id];
+  }else{
+    throw new Erroe("No way to retrieve element!");
+  }
+}
+document.write(getElement("test") + "<br>");
+
+// var returnedNode = someNode.appendChild(newNode);
+// document.write(returnedNode == newNode);
+// document.write("<br>");
+// document.write(someNode.lastChild == newNode);
+// document.write("<br>");
+
+var myP = document.getElementById("test");
+document.write(myP.tagName + "<br>");
+document.write(test.tagName == test.nodeName );
+document.write("<br>");
+document.write(myP.dir);
