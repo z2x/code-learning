@@ -834,22 +834,22 @@ document.write(cat1.species); // 动物
 document.write("<br>");
 document.write(cat1.name + "<br>");
 
-var readBook = function(){
-    document.write(arguments.callee + "<br>");//这里返回的是read函数
-    document.write(arguments.caller + "<br>");//这里返回的应该是go函数
+var readBook = function () {
+  document.write(arguments.callee + "<br>"); //这里返回的是read函数
+  document.write(arguments.caller + "<br>"); //这里返回的应该是go函数
 };
-var go = function(){
-    readBook();
+var go = function () {
+  readBook();
 };
 go();
 
 var pageWidth = window.innerWidth,
-    pageHeight = window.innerHeight;
-if(typeof pageWidth != "number"){
-  if(document.compatMode = "css1Compat"){
+  pageHeight = window.innerHeight;
+if (typeof pageWidth != "number") {
+  if (document.compatMode = "css1Compat") {
     pageWidth = document.documentElement.clientWidth;
     pageHeight = document.documentElement.clientHeight;
-  }else{
+  } else {
     pageWidth = document.body.clientWidth;
     pageHeight = document.body.clientHeight;
   }
@@ -868,20 +868,21 @@ document.write("pageHeight: " + pageHeight + "<br>");
 var num = 0;
 var ax = 10;
 var intervalId = null;
-function incrementNumber(){
-  num ++;
-  if(num === max){
+
+function incrementNumber() {
+  num++;
+  if (num === max) {
     clearInterval(intervalId);
   }
 }
-intervalId = setInterval(incrementNumber,500);
+intervalId = setInterval(incrementNumber, 500);
 
 document.write(navigator.appCodeName + "<br>");
 
-function hasPlugin(){
+function hasPlugin() {
   name = name.toLowerCase();
-  for(var i = 0;i < navigator.plugins.length;i ++){
-    if(navigator.plugins[i].name.toLowerCase().indexOf(name) > -1){
+  for (var i = 0; i < navigator.plugins.length; i++) {
+    if (navigator.plugins[i].name.toLowerCase().indexOf(name) > -1) {
       return true;
     }
   }
@@ -890,12 +891,12 @@ function hasPlugin(){
 document.write(hasPlugin("Flash") + "<br>");
 document.write(hasPlugin("QuickTime") + "<br>");
 
-function getElement(id){
-  if(document.getElementById){
+function getElement(id) {
+  if (document.getElementById) {
     return document.getElementById(id);
-  }else if(doument.all){
+  } else if (doument.all) {
     return document.all[id];
-  }else{
+  } else {
     throw new Erroe("No way to retrieve element!");
   }
 }
@@ -909,6 +910,102 @@ document.write(getElement("test") + "<br>");
 
 var myP = document.getElementById("test");
 document.write(myP.tagName + "<br>");
-document.write(test.tagName == test.nodeName );
+document.write(test.tagName == test.nodeName);
 document.write("<br>");
 document.write(myP.dir);
+
+
+function changeText() {
+  var div = document.getElementById("changeTextDiv");
+  changDiv = div.firstChild.nodeValue = "Some other message";
+}
+
+function addNode() {
+
+  var element = document.createElement("div");
+  element.className = "message";
+
+  var textNode = document.createTextNode("Hello world!");
+  element.appendChild(textNode);
+
+  var anotherTextNode = document.createTextNode("Yippee!");
+  element.appendChild(anotherTextNode);
+
+  document.body.appendChild(element);
+}
+
+var theDiv = document.getElementById("myComment");
+var comment = theDiv.firstChild;
+console.log(comment.data);
+
+var element = document.createElement("div");
+element.className = "message";
+
+var textNode = document.createTextNode("Hello World!");
+element.appendChild(textNode);
+
+var anotherTextNode = document.createTextNode("apple");
+element.appendChild(anotherTextNode);
+
+document.body.appendChild(element);
+
+document.write(element.childNodes.length + "<br>");
+element.normalize();
+document.write(element.childNodes.length + "<br>");
+document.write(element.firstChild.nodeValue + "<br>");
+
+// 创建table元素
+var table = document.createElement("table");
+
+// 设置table边框以及宽度
+table.border = 1;
+table.width = "100%";
+
+// 创建tbody元素
+var tbody = document.createElement("tbody");
+table.appendChild(tbody);
+
+// 创建第一行
+tbody.insertRow(0);
+
+// 创建第一个单元格
+tbody.rows[0].insertCell(0);
+
+// 添加第一行第一个单元格内容
+tbody.rows[0].cells[0].appendChild(document.createTextNode("cell 1,1"));
+
+// 创建第二个单元格
+tbody.rows[0].insertCell(1);
+
+// 添加第一行第二个单元格内容
+tbody.rows[0].cells[1].appendChild(document.createTextNode('cell 2,1'));
+
+// 创建第二行
+tbody.insertRow(1);
+tbody.rows[1].insertCell(0);
+tbody.rows[1].cells[0].appendChild(document.createTextNode("cell 1,2"));
+tbody.rows[1].insertCell(1);
+tbody.rows[1].cells[1].appendChild(document.createTextNode("cell 1,2"));
+
+// 将表格添加到文档树
+document.body.appendChild(table);
+
+function getOuterText(){
+  var div = document.getElementById("content");
+  document.write(div.outerHTML + "<br>");
+
+  document.write(div.outerHTML = "Hello world!");
+
+  div.insertAdjacentHTML("afterbegin","there has a ul!");
+  document.write(div.outerHTML + "<br>");
+}
+
+getOuterText();
+
+document.write(document.documentMode + "<br>");
+
+document.write(document.documentElement.contains(document.body));
+document.write("<br>");
+document.write(document.documentElement.contains(document.footer));
+document.write("<br>");
+
