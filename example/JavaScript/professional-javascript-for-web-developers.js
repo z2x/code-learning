@@ -1078,11 +1078,3 @@ var colorFirlds = form.elements["color"];
 document.write(colorFirlds.length + "<br>");
 document.write(colorFirlds[0] + "<br>");
 document.write(form.elements[0] + "<br>");
-
-window.onload(){
-  var drawing = document.getElementById("drawing");
-  if (drawing.getContext) {
-    var content = drawing.getContext("2d");
-    content.fillStyle = "ff0000";
-  }
-};
