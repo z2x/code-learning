@@ -990,13 +990,13 @@ tbody.rows[1].cells[1].appendChild(document.createTextNode("cell 1,2"));
 // 将表格添加到文档树
 document.body.appendChild(table);
 
-function getOuterText(){
+function getOuterText() {
   var div = document.getElementById("content");
   document.write(div.outerHTML + "<br>");
 
   document.write(div.outerHTML = "Hello world!");
 
-  div.insertAdjacentHTML("afterbegin","there has a ul!");
+  div.insertAdjacentHTML("afterbegin", "there has a ul!");
   document.write(div.outerHTML + "<br>");
 }
 
@@ -1009,3 +1009,80 @@ document.write("<br>");
 document.write(document.documentElement.contains(document.footer));
 document.write("<br>");
 
+function makeNodeList() {
+  var div = document.getElementById("content");
+
+  // 设置元素筛选器
+  var filter = function (node) {
+    return node.tagName.toLowerCase() == "li" ?
+      // 应该访问给定的节点
+      NodeFilter.FILTER_ACCEPT :
+
+      // 不应该访问给定的节点
+      NodeFilter.FILTER_SKIP;
+  };
+  var iterator = document.createNodeIterator(div, NodeFilter.SHOW_ELEMENT, filter, false);
+  var node = iterator.nextNode();
+  while (node != null) {
+    document.write(node.tagName + "<br>");
+    node = iterator.nextNode();
+  }
+}
+makeNodeList();
+
+var range1 = document.createRange();
+range2 = document.createRange();
+p1 = document.getElementById("test");
+range1.selectNode(p1);
+range2.selectNodeContents(p1);
+
+function insertContent() {
+  var p1 = document.getElementById("test"),
+    helloNode = p1.firstChild,
+    worldNode = p1.lastChild.firstChild,
+    range = document.createRange(),
+    span = document.createElement("span");
+
+  span.style.color = "red";
+  span.appendChild(document.createTextNode("Inserted text"));
+
+  range.setStart(helloNode, 2);
+  range.setEnd(worldNode, 3);
+  range.insertNode(span);
+
+}
+insertContent();
+
+var btn = document.getElementById("mybtn");
+var handler = function (event) {
+  switch (event.type) {
+    case "click":
+      alert("clicked");
+      break;
+
+    case "mouseover":
+      event.target.style.backgroundColor = "red";
+      break;
+
+    case "mouseout":
+      event.target.style.backgroundColor = "";
+  }
+};
+btn.onclick = handler;
+btn.onmouseover = handler;
+btn.onmouseout = handler;
+
+var form = document.getElementById("myForm");
+var colorFirlds = form.elements["color"];
+
+document.write(colorFirlds.length + "<br>");
+document.write(colorFirlds[0] + "<br>");
+document.write(form.elements[0] + "<br>");
+
+window.onload(){
+  var drawing = document.getElementById("drawing");
+  if (drawing.getContext) {
+    var content = drawing.getContext("2d");
+    content.fillStyle = "ff0000";
+  }
+};

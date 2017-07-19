@@ -9,13 +9,13 @@
 </head>
 
 <body>
-  <p id="test">this is test</p>
+  <p id="test">this is <strong>test</strong></p>
   </br>
   <div></div>
   <div> </div>
   <div id="changeTextDiv">hello World</div>
   </br>
-  <input type="button" value="Change Text" onclick="changeText()">
+  <input id="mybtn" type="button" value="Change Text" onclick="changeText()">
   <input type="button" value="addNode" onclick="addNode()">
 
   <div id="myComment">
@@ -31,7 +31,17 @@
       <li>tiem3</li>
     </ul>
   </div>
+  <input type="button" value="Insert Content" onclick="insertContent()">
 
+  <form method="post" id="myForm">
+    <ul>
+      <li><input type="radio" name="color" value="red">Red</li>
+      <li><input type="radio" name="color" value="Green">Green</li>
+      <li><input type="radio" name="color" value="blue">Blue</li>
+    </ul>
+  </form>
+
+  <canvas id="drawing" width="200px" height="200px">a drawing of something.</canvas>
 
   <script src="professional-javascript-for-web-developers.js"></script>
 </body>
