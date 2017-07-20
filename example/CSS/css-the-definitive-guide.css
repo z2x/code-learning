@@ -1,0 +1,74 @@
+body{
+    width: 960px;
+}
+book,
+miantitle,
+author,
+publisher,
+pubdate,
+isbn
+{
+
+    display: block;
+}
+
+h1,
+h2,
+h3
+{
+    font-family: Charcoal, sans-serif;
+
+    color: gray;
+    border: 1px solid balck;
+    background: white;
+}
+
+*.warning
+{
+    font-weight: bold;
+}
+
+p.warning
+{
+    font-weight: bold;
+}
+
+span.warning
+{
+    font-style: italic;
+}
+.urgent
+{
+    font-style: italic !important;
+}
+.warning.urgent
+{
+    background: silver;
+}
+h1[class]{
+  text-decoration:underline;
+}
+a[href][title]{
+    font-weight: bold;
+}
+a[title="baidu"]{
+    font-size: 1.5em;
+}
+p[class~="warning"]{
+    color: red;
+}
+a{
+    color: red;
+}
+a:link,a:visited{
+    font-size: 13px;
+}
+a:link:hover{
+    font-size: 20px;
+}
+
+li:first-child{
+color:red;
+}
+
+
