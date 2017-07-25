@@ -1,74 +1,122 @@
-body{
+body {
     width: 960px;
 }
+
 book,
 miantitle,
 author,
 publisher,
 pubdate,
-isbn
-{
-
+isbn {
     display: block;
 }
 
 h1,
 h2,
-h3
-{
+h3 {
     font-family: Charcoal, sans-serif;
-
     color: gray;
     border: 1px solid balck;
     background: white;
 }
 
-*.warning
-{
+*.warning {
     font-weight: bold;
 }
 
-p.warning
-{
+p.warning {
     font-weight: bold;
 }
 
-span.warning
-{
+span.warning {
     font-style: italic;
 }
-.urgent
-{
+
+.urgent {
     font-style: italic !important;
 }
-.warning.urgent
-{
+
+.warning.urgent {
     background: silver;
 }
-h1[class]{
-  text-decoration:underline;
+
+h1[class] {
+    text-decoration: underline;
 }
-a[href][title]{
+
+a[href][title] {
     font-weight: bold;
 }
-a[title="baidu"]{
+
+a[title='baidu'] {
     font-size: 1.5em;
 }
-p[class~="warning"]{
+
+p[class~='warning'] {
     color: red;
 }
-a{
+
+a {
     color: red;
 }
-a:link,a:visited{
+
+a:link,
+a:visited {
     font-size: 13px;
 }
-a:link:hover{
+
+a:link:hover {
     font-size: 20px;
 }
 
-li:first-child{
-color:red;
+li:first-child {
+    color: red;
+}
+
+h1.decoration {
+    text-decoration: underline;
+    color: silver;
+    text-shadow: green 20px .5em 2px;
+}
+
+.marginTest {
+    width: 800px;
+    height: 200px;
+    background-color: silver;
+}
+
+.marginTest p {
+    width: 300px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+#liDisplay li {
+    display: inline;
+    padding: 10px;
+    border-right: 1px solid black;
+}
+
+#liDisplay li:first-child {
+    border-left: 1px solid black;
 }
 
 
+/*.marginTest p + p{
+    margin-left: -3px;
+}*/
+
+.pFloat:first-letter {
+    font-size: 300%;
+    float: left;
+}
+
+#fourPosition {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 50%;
+    height: 50%;
+    margin: auto 0;
+    background: silver;
+}
