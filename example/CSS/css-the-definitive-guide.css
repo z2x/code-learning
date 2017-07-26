@@ -120,3 +120,60 @@ h1.decoration {
     margin: auto 0;
     background: silver;
 }
+a[href]::before{
+    content: "["attr(href)"]";
+    color: blue;
+}
+h1[id="Pseudo-classes-h1"]{
+    border-top: 3px solid black;
+    padding-top: 0.25em;
+}
+h1[id="Pseudo-classes-h1"]::before{
+    content: "this is h1";
+    display: block;
+    color: gray;
+    border-bottom: 1px dotted black;
+    margin-bottom: 1em;
+}
+h2[id="insert-quotes"]::before{
+    content: open-quote;
+    counter-reset: chapter 4;
+}
+h2[id="insert-quotes"]::after{
+    content:close-quote;
+}
+
+
+/* 从0开始计数 */
+list[type="ordered"]{
+    counter-reset: ordered;
+}
+list[type="ordered"] item{
+    display: block;
+}
+list[type="ordered"] item::before{
+    counter-increment: ordered;
+    content: counter(ordered) ".";
+    margin:1em 0;
+}
+
+/* hgroup h1::before{
+    counter-reset: section subsec;
+    counter-increment: chapter;
+    content: counter(chapter) ".";
+}
+hgroup h2::before{
+     counter-reset: subsec;
+    counter-increment: section;
+    content: counter(chapter) "." counter(section) ".";
+} */
+
+h1:before {counter-reset: section subsec;
+  counter-increment: chapter;
+  content: counter(chapter,upper-alpha) ". ";}
+h2:before {counter-reset: subsec;
+  counter-increment: section;
+  content: counter(chapter,upper-alpha)"." counter(section) ". ";}
+h3:before {counter-increment: subsec;
+  content: counter(chapter,upper-alpha) "." counter(section) "."
+  counter(subsec,lower-roman) ". ";}
