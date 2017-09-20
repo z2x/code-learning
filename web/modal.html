@@ -5,63 +5,62 @@
   <title></title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="css/style.css" rel="stylesheet">
   <style>
-    .container {
-      width: 600px;
-      margin: 0 auto;
-    }
+  .container {
+    width: 600px;
+    margin: 0 auto;
+  }
 
-    .modal {
-      position: fixed;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
-      background-color: rgba(0, 0, 0, 0.4);
-    }
+  .modal {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+    display: none;
+  }
 
-    .container .modal .middle-content {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      width: 600px;
-      transform: translate(-50%, -50%);
-      background-color: #fff;
+  .open {
+    display: block;
+  }
 
-      box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    }
+  .container .modal .middle-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 600px;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
 
-    .modal .middle-content header,
-    footer {
-      background-color: #009688;
-      color: white;
-      padding: 3px 16px;
-    }
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
 
-    .modal .middle-content header span {
-      float: right;
-      cursor: pointer;
-    }
+  .modal .middle-content header,
+  footer {
+    background-color: #009688;
+    color: white;
+    padding: 3px 16px;
+  }
 
-    .modal .middle-content article {
-      padding: 16px;
-    }
+  .modal .middle-content header span {
+    float: right;
+    cursor: pointer;
+  }
+
+  .modal .middle-content article {
+    padding: 16px;
+  }
   </style>
 </head>
 
 <body>
   <div class="container">
-    <div class="top-content">
-      <h2>模态框（Modal）</h2>
-      <h2>模态框（Modal）</h2>
-      <h2>模态框（Modal）</h2>
-    </div>
+    <button class="btn-modal">点击弹出模态框</button>
     <div class="modal">
-
       <div class="middle-content">
         <header>
-          <span>x</span>
+          <span class="close">x</span>
           <h3>头部</h3>
         </header>
         <article>
@@ -74,6 +73,28 @@
       </div>
     </div>
   </div>
+  <script>
+  var btn = document.querySelector('.btn-modal'),
+    modal = document.querySelector('.modal'),
+    close = document.querySelector('.close');
+  modalContent = document.querySelector('.middle-content');
+
+  btn.addEventListener('click', function() {
+    modal.classList.add('open');
+  }, false);
+
+  close.addEventListener('click', function() {
+    modal.classList.remove('open');
+  }, false);
+
+  modal.addEventListener('click', function() {
+    modal.classList.remove('open');
+  }, false);
+
+  modalContent.addEventListener('click', function(e) {
+    e.stopPropagation();
+  });
+  </script>
 </body>
 
 </html>
