@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>ajax查询</title>
+  <link rel="stylesheet" href="">
+</head>
+
+<body>
+  <div class="query-area">
+    <input type="text" name="username">
+    <button>查询</button>
+  </div>
+  <div class="detail-area">
+    <ul></ul>
+  </div>
+  <script>
+  var btn = document.querySelector('.query-area button');
+  var input = document.querySelector('.query-area input');
+  var detailCt = document.querySelector('.detail-area ul');
+
+  btn.addEventListener('click', function() {
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function() {
+      if (xhr.readyState == 4 && (xhr.status == '200' || xhr.status == '304')) {
+        var friends = JSON.parse(xhr.responseText);
+        var html = render(friends);
+        detailCt.innerHTML = html;
+      }
+    };
+
+    xhr.open('get', '/friends?username=' + input.value, true);
+    xhr.send();
+  });
+
+  function render(friends) {
+    var html = '';
+    for (var i = 0; i < friends.length; i++) {
+      html += '<li>' + friends[i] + '</li>';
+    }
+    return html;
+  }
+  </script>
+</body>
+
+</html>

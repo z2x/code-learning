@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Load More</title>
+  <link rel="stylesheet" href="">
+  <style>
+  ul,
+  li {
+    margin: 0;
+    padding: 0;
+  }
+
+  .content li {
+    list-style: none;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 10px 0;
+    cursor: pointer;
+  }
+
+  #load-more {
+    display: block;
+    text-align: center;
+    width: 80px;
+    height: 35px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    cursor: pointer;
+    margin: 0 auto;
+  }
+  </style>
+</head>
+
+<body>
+  <ul class="content"></ul>
+  <button id="load-more" class="btn">加载更多</button>
+  <script>
+  var btn = document.querySelector('#load-more');
+  var content = document.querySelector('.content');
+  var pageIndex = 0;
+  var isDataArrive = true;
+
+  btn.addEventListener('click', function() {
+
+    if (!isDataArrive) {
+      return;
+    }
+
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function() {
+      if (xhr.readyState === 4) {
+        if (xhr.status === 200 || xhr.status === 304) {
+          var result = JSON.parse(xhr.responseText);
+          console.log(result);
+
+          var fragment = document.createDocumentFragment();
+          for (var i = 0; i < result.length; i++) {
+            var node = document.createElement('li');
+            node.innerText = result[i];
+            fragment.appendChild(node);
+          }
+          content.appendChild(fragment);
+
+          pageIndex = pageIndex + 5;
+        }
+        isDataArrive = true;
+      }
+    };
+    xhr.open('get', '/loadMore?index=' + pageIndex + '&length=5', true);
+    xhr.send();
+    isDataArrive = false;
+  });
+  </script>
+</body>
+
+</html>
