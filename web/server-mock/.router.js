@@ -1,5 +1,5 @@
-function setRouter(app){ 
- var router = app; 
+function setRouter(app){
+ var router = app;
 
 /**
  * 页面路由，从模板渲染页面渲染页面,
@@ -40,4 +40,4 @@ app.post('/user', function(req, res) {
   // });
 });
 }
- module.exports.setRouter = setRouter
+ module.exports.setRouter = setRouter;
