@@ -50,8 +50,6 @@
     z-index: 1;
     top: 50%;
 
-    display: none;
-
     width: 50px;
     height: 50px;
 
@@ -206,16 +204,6 @@
     autoPlay =   setInterval(function() {
     playNext(1);
   }, 2000);
-
-
-  $imgContent.hover(
-    function() {
-      $('.carousel .arrow').css({ 'display': 'block' });
-    },
-    function() {
-      $('.carousel .arrow').css({ 'display': 'none' });
-    }
-  );
   </script>
 </body>
 
