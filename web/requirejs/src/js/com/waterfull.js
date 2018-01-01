@@ -82,14 +82,14 @@ define(['jquery'], function ($) {
       });
     });
   };
-  WaterFall = (function () {
+  const WaterFall = (function () {
     return {
       init: function ($ct) {
         $ct.each(function (idx, ct) {
           new _WaterFall($(ct));
-        })
+        });
       }
-    }
+    };
   })();
 
   return WaterFall;
